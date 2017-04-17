@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Use devise for user login and authentication
 gem 'devise'
+# Use twitter bootstrap for styling
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
