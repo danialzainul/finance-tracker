@@ -38,6 +38,8 @@ gem 'devise'
 # Use twitter bootstrap for styling
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
+# Use stock_quote to get stock prices from Yahoo API
+gem 'stock_quote'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
