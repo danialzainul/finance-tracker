@@ -15,12 +15,26 @@
   <% end %>
 
   <%= render 'common/spinner' %>
-  
+
   <% if @stock %>
     <div id="stock-lookup-results" class="well results-block">
       <strong>Symbol:</strong> <%= @stock.ticker %>
       <strong>Name:</strong> <%= @stock.name %>
       <strong>Price:</strong> <%= @stock.price %>
+      <% if current_user.can_add_stock?(@stock.ticker) %>
+        <%= link_to "Track Stock", user_stocks_path(user: current_user,
+          stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id : ''),
+          class: 'btn btn-xs btn-success', method: :post %>
+      <% else %>
+        <span class="label label-warning">
+          <% if !current_user.under_stock_limit? %>
+            Maximum tracking of 10 stocks is reached
+          <% end %>
+          <% if current_user.stock_already_added? (@stock.ticker) %>
+            Stock already tracked
+          <% end %>
+        </span>
+      <% end %>
     </div>
   <% end %>
   <div id="stock-lookup-errors"></div>
