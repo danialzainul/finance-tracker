@@ -8,8 +8,8 @@
               class: 'form-control search-box input-lg' %>
       </div>
       <div class="col-md-2">
-        <%= button_tag(type: :submit, class: "btn btn-lg btn-success") do %>
-          <i class="fa fa-search"></i> Search for a friend
+        <%= button_tag(type: :submit, class: "btn btn-lg btn-primary") do %>
+          <i class="fa fa-search"></i> Search a friend
         <% end %>
       </div>
     </div>
@@ -24,10 +24,10 @@
           <tbody>
             <% @users.each do |user| %>
               <tr>
-                <td><strong>Name:</strong> <%= @user.full_name %></td>
-                <td><strong>Email:</strong> <%= @friend.email %></td>
+                <td><strong>Name:</strong> <%= user.full_name %></td>
+                <td><strong>Email:</strong> <%= user.email %></td>
                 <td>
-                  <strong>Profile:</strong> <%= link_to "View Profile", user_path(user), class: "btn btn-xs btn-success" %>
+                  <strong>Profile:</strong> <%= link_to "View Profile", user_path(user), class: "btn btn-xs btn-primary" %>
                     <% if current_user.not_friends_with?(user.id) %>
                       <%= link_to "Add as friend", add_friend_path(user: current_user, friend: user),
                             class: "btn btn-xs btn-success", method: :post %>

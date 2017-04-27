@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.search(params[:search_params])
+    @users = User.search(params[:search_param])
 
     if @users
       @users = current_user.except_current_user(@users) #so that current_user does not show up on the search
