@@ -32,7 +32,7 @@
                       <%= link_to "Add as friend", add_friend_path(user: current_user, friend: user),
                             class: "btn btn-xs btn-success", method: :post %>
                     <% else %>
-                      <span class="label label-primary">
+                      <span class="label label-warning">
                         You are already friends
                       </span>
                     <% end %>

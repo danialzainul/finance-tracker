@@ -60,8 +60,10 @@ class User < ActiveRecord::Base
   end
 
   def self.matches(field_name, param)
-    # %param% (called a wildcard) is so that param does not need to be an exact match
+    # %% (called a wildcard) is so that param does not need to be an exact match
     # eg. we type 'joh' and pass it thru param, field_name will return 'john'
+    # find me the users where the first_name (converted to lower case)
+    # partially matches the value of 'param
     where("lower(#{field_name}) like ?", "%#{param}%")
   end
 end
